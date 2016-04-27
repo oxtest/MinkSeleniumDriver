@@ -1,5 +1,5 @@
 {
-    "name":         "behat/mink-selenium-driver",
+    "name":         "oxid-esales/mink-selenium-driver",
     "description":  "Selenium driver for Mink framework",
     "keywords":     ["selenium", "javascript", "ajax", "testing", "browser"],
     "homepage":     "http://mink.behat.org/",
@@ -17,7 +17,7 @@
     "require": {
         "php":                           ">=5.3.1",
         "behat/mink":                    "~1.5.0",
-        "alexandresalome/php-selenium":  "~1.0.1",
+        "oxid-esales/php-selenium":      "~1.0.5",
         "symfony/dom-crawler":           "~2.0"
     },
 
