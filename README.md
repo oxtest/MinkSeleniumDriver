@@ -40,13 +40,3 @@ Installation
 $> curl http://getcomposer.org/installer | php
 $> php composer.phar install
 ```
-
-Copyright
----------
-
-Copyright (c) 2012 Alexandre Salomé <alexandre.salome@gmail.com>.
-
-Maintainers
------------
-
-* Alexandre Salomé [alexandresalome](http://github.com/alexandresalome)
