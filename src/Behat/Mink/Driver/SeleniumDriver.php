@@ -303,7 +303,7 @@ class SeleniumDriver extends CoreDriver
      */
     public function getValue($xpath)
     {
-        $xpathEscaped = str_replace('"', '\"', $xpath);
+        $xpathEscaped = str_replace(['"', "\n"], ['\"', ' '], $xpath);
         $script = <<<JS
 var node = this.browserbot.locateElementByXPath("$xpathEscaped", window.document);
     tagName = node.tagName.toUpperCase(),
@@ -398,12 +398,12 @@ JS;
      */
     public function selectOption($xpath, $value, $multiple = false)
     {
-        $xpathEscaped = str_replace('"', '\"', $xpath);
-        $valueEscaped = str_replace('"', '\"', $value);
+        $xpathEscaped = str_replace(['"', "\n"], ['\"', ' '], $xpath);
+
+        $valueEscaped = str_replace(['"', "\n"], ['\"', ' '], $value);
         $multipleJS   = $multiple ? 'true' : 'false';
 
         $script = <<<JS
-// Function to triger an event. Cross-browser compliant. See http://stackoverflow.com/a/2490876/135494
 var triggerEvent = function (element, eventName) {
     var event;
     if (document.createEvent) {
