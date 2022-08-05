@@ -253,10 +253,8 @@ class SeleniumDriver extends CoreDriver
     public function getTagName($xpath)
     {
         $nodes = $this->getCrawler()->filterXPath($xpath)->eq(0);
-        $nodes->rewind();
-        $node = $nodes->current();
 
-        return $node->nodeName;
+        return $nodes->first()->nodeName();
     }
 
     /**
@@ -275,10 +273,7 @@ class SeleniumDriver extends CoreDriver
     public function getHtml($xpath)
     {
         $nodes = $this->getCrawler()->filterXPath($xpath)->eq(0);
-
-        $nodes->rewind();
-        $node = $nodes->current();
-        $text = $node->C14N();
+        $text = $nodes->getNode(0)->C14N();
 
         // cut the tag itself (making innerHTML out of outerHTML)
         $text = preg_replace('/^\<[^\>]+\>|\<[^\>]+\>$/', '', $text);
